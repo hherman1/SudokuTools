@@ -5,6 +5,7 @@ module Input (
 	readKnownChar,
 	inputBoard,
 ) where
+import Sudoku
 
 showPiece :: Piece -> String
 showPiece (Known i) = "[" ++ show i ++ "]"
@@ -54,9 +55,6 @@ inputBoard = do
 getPiece :: IO Piece
 getPiece = fmap readKnownChar getChar
 
-emptyBoard :: Board
-emptyBoard = nineOf . nineOf $ Unknown []
-	where nineOf =  take 9 . repeat
 
 main :: IO ()
 main = putStrLn "test"
